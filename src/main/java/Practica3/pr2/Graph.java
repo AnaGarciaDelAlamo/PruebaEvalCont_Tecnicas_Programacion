@@ -1,9 +1,6 @@
 package Practica3.pr2;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Graph<V>{
     private Map<V, Set<V>> adjacencyList = new HashMap<>();
@@ -27,12 +24,14 @@ public class Graph<V>{
     }
 
     public Set<V> obtainAdjacents(V v) throws Exception{
-
+        if(adjacencyList.containsKey(v)){
+            return adjacencyList.get(v);
+        }
         return null;
     }
 
     public boolean containsVertex(V v){
-        return true;
+        return adjacencyList.containsKey(v);
     }
 
     @Override
@@ -43,6 +42,14 @@ public class Graph<V>{
     }
 
     public List<V> onePath(V v1, V v2){
-        return null;
+        List<V> path = new ArrayList<>();
+        path.add(v1);
+        if(v1.equals(v2)){
+            return path;
+        }
+        for (V v : adjacencyList.get(v1)){
+            path.addAll(onePath(v, v2));
+        }
+        return path;
     }
 }
