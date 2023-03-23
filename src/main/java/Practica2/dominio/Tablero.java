@@ -44,6 +44,12 @@ public class Tablero {
 
     @Override
     public String toString() {
-        return "El estado actual es: " + estadoActual;
+        String tablero = "";
+        for(int i = 0; i< DIMENSION; i++){
+            for(int j = 0; j<DIMENSION; j++){
+                tablero += estadoActual[i][j];
+            }
+        }
+        return tablero;
     }
 }
