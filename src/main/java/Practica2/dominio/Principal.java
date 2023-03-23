@@ -7,7 +7,6 @@ public class Principal {
         try{
             Tablero tablero = new Tablero();
             System.out.println("SIMULACIÓN CON TABLERO LEÍDO");
-
             tablero.leerEstadoActual();
             System.out.println(tablero);
             for(int i = 0; i <=5; i++){
